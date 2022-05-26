@@ -1,0 +1,25 @@
+--- 
+# NOTICE !!!
+# NEVER CHANGE OR MOVE OR EDIT THE VARIABLE NAME INSIDE THIS FILE UNLES YOU UNDERSTAND WHAT YOU TRYING TO DO! 
+# THAT CAN GENERATING ERROR!
+# JUST INTERACT AND EDIT THE VARIABLE VALUE!
+
+# Dont't forget to rename exampe-config.yml to config.yml before run the app!
+
+# CONFIGURATION READER
+
+  useYMLConfig: true  # put true as value if you want the bot use this yml file for configuration. If false the bot will use .env variable
+
+# GENERAL USE
+  general:
+    botToken:       "YOUR BOT TOKEN HERE!" # Your bot token!
+    botClientId:    "BOT ID" # Your Bot Client ID
+    serverGuildId:  "SERVER ID" # Your Server ID
+    serverOwner:    "OWNER ID" # Your Server Owner ID
+
+  ptero:
+    usePterodactyl: true # true = activating pterodactyl integration feature, false = deactivate pterodactyl integration feature!
+    appAPIKey:      "APPLICATION API KEY" # Pterodactyl Application API Key
+    panelUrl:       "MAIN PANEL URL" # Pterodactyl Panel main URL
+
+

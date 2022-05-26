@@ -1,0 +1,27 @@
+{
+  "name": "discord-shop",
+  "version": "1.0.0",
+  "description": "Shop Management For Discord",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dr-Rei/Discord-Shop.git"
+  },
+  "author": "Dr.Rei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dr-Rei/Discord-Shop/issues"
+  },
+  "homepage": "https://github.com/Dr-Rei/Discord-Shop#readme",
+  "dependencies": {
+    "@discordjs/rest": "^0.4.1",
+    "discord.js": "^13.7.0",
+    "fs": "^0.0.1-security",
+    "js-yaml": "^4.1.0",
+    "node-cron": "^3.0.0",
+    "nodeactyl": "^3.2.2"
+  }
+}
