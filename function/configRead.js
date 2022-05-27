@@ -26,7 +26,8 @@ function envRead() {
   }
 
   // READY PTERODACTYL DATA
-  if (process.env.usePterodactyl == true) {
+
+  if (process.env.usePterodactyl) {
     console.log("Reading Petrodactyl settings...");
 
     ptero = {
@@ -35,10 +36,10 @@ function envRead() {
       panelUrl: process.env.panelUrl,
     };
 
-    console.log("Petrodactyl settings read Complete!");
+    console.log("Pterodactyl settings read Complete!");
   } else {
     console.log(
-      "Petrodactyl module set to false. The module will be disabled!"
+      "usePterodactyl variable set to false or not found!. The module will be disabled!"
     );
     ptero = {
       usePterodactyl: false,
