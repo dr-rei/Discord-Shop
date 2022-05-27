@@ -1,10 +1,9 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const Nodeactyl = require('nodeactyl');
 const randInt = require('../function/randomInteger')
-const configuration = require("../function/configRead.js")
-const config = configuration.configRead();
 
-const application = new Nodeactyl.NodeactylApplication(config.ptero.panelUrl, config.ptero.appAPIKey);
+
+
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('create-allocation')
@@ -13,7 +12,8 @@ module.exports = {
 		.addIntegerOption(option => option.setName('total').setDescription('Input Total Allocation That Will Generated').setRequired(true))
 		.addIntegerOption(option => option.setName('min-range').setDescription('Minimun range for allocation port').setRequired(true))
 		.addIntegerOption(option => option.setName('max-range').setDescription('Maximum range for allocation port').setRequired(true)),
-	async execute(interaction) {
+	async execute(interaction, config) {
+		const application = new Nodeactyl.NodeactylApplication(config.ptero.panelUrl, config.ptero.appAPIKey);
         const nodeId = interaction.options.getInteger('nodes-id')
 		const allocationLimit = interaction.options.getInteger('total')
 		const minRange = interaction.options.getInteger('min-range')
