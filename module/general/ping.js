@@ -9,7 +9,7 @@ module.exports = {
 
 		const permissions = require('../permission.js')
 		const denied = require('../../function/permissionDenied.js')
-		const allowed = await permissions.slashRolePermission(config.permission.admin, interaction)
+		const allowed = await permissions.slashRolePermission(config.permission.general, interaction)
 		if(!allowed){
 			denied.permissionDenied(interaction)
 		}else{
