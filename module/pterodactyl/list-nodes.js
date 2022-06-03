@@ -4,7 +4,7 @@ const embedResponse = require("../../function/response_nodeList");
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("node-list")
+    .setName("list-nodes")
     .setDescription("Show all nodes"),
   async execute(interaction, config) {
     const permissions = require("../permission.js");
