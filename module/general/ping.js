@@ -30,7 +30,6 @@ module.exports = {
 				.addFields(
 					{ name: 'API Ping :', value: "```"+PingAPI+" ms```", inline: true },
 					{ name: 'Bot Ping :', value: "```"+PingBOT+" ms```", inline: true },
-					
 				)
 			await interaction.editReply({embeds: [result]})
 

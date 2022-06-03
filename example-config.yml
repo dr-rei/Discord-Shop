@@ -9,7 +9,10 @@
 # CONFIGURATION READER
 
   useYMLConfig: true  # put true as value if you want the bot use this yml file for configuration. If false the bot will use .env variable
-
+# ROLE ID FOR MODULE PERMISSION
+  permission: # Array of Role ID that can access some command! Make sure put value in array format. The number of roles that can be entered is not limited!
+    admin:          ["ROLE ID","ROLE ID"] 
+    ptero:          ["ROLE ID","ROLE ID"]
 # GENERAL USE
   general:
     botToken:       "YOUR BOT TOKEN HERE!" # Your bot token!

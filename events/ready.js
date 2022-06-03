@@ -1,10 +1,11 @@
 module.exports = {
 	name: 'ready',
 	once: true,
-	async execute(client) {
+	async execute(client, config) {
 		console.log(`Ready! Logged in as ${client.user.tag}`);
-		
 		const cron = require('node-cron')
+
+
 		//SET CRON EVERY SECONDS
 		
 		cron.schedule('* * * * * *', function() {
@@ -31,8 +32,8 @@ module.exports = {
 			
 		})
 
-
-
+		
+		
 
 
 	},
