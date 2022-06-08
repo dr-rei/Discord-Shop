@@ -23,6 +23,6 @@
     "fs": "^0.0.1-security",
     "js-yaml": "^4.1.0",
     "node-cron": "^3.0.0",
-    "nodeactyl": "^3.2.2"
+    "node-fetch": "^2.6.7"
   }
 }

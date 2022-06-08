@@ -10,7 +10,8 @@ Bot that created for helping Server Owner to do shop management in Discord Serve
 
 -   General
 
-    -   YML and ENV Configuration
+    -   YML Configuration
+    -   ENV Configuration (UNDER DEVELOPMENT)
 
 -   Basic Integration With Pterodactyl Panel
 

@@ -23,6 +23,6 @@
   ptero:
     usePterodactyl: true # true = activating pterodactyl integration feature, false = deactivate pterodactyl integration feature!
     appAPIKey:      "APPLICATION API KEY" # Pterodactyl Application API Key
-    panelUrl:       "MAIN PANEL URL" # Pterodactyl Panel main URL
+    panelUrl:       "MAIN PANEL URL" # Pterodactyl Panel main URL (https://yourdomain.com)
 
 
