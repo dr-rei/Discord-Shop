@@ -1,7 +1,9 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
-    data: new SlashCommandBuilder().setName("create-nodes").setDescription("Create Allocation"),
+    data: new SlashCommandBuilder()
+        .setName("create-nodes")
+        .setDescription("Create Nodes"),
 
     async execute(interaction, config) {
         const permissions = require("../permission.js");
@@ -10,7 +12,7 @@ module.exports = {
         if (!allowed) {
             denied.permissionDenied(interaction);
         } else {
-            //dev
+            
         }
     },
 };

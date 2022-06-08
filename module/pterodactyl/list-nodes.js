@@ -3,7 +3,8 @@ const Pterodactyl = require("./function/pterodactyl");
 const { MessageEmbed } = require("discord.js");
 
 module.exports = {
-  data: new SlashCommandBuilder().setName("list-nodes").setDescription("Show all nodes"),
+  data: new SlashCommandBuilder().setName("list-nodes")
+    .setDescription("Show all nodes"),
   async execute(interaction, config) {
     const permissions = require("../permission.js");
     const channel = interaction.client.channels.cache.get(interaction.channel.id);
@@ -34,7 +35,7 @@ module.exports = {
             }
             
           }
-          awaitchannel.send({ embeds: [embed] });
+          await channel.send({ embeds: [embed] });
           await interaction.reply("Complete");
         }
       }

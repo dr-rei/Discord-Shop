@@ -6,6 +6,11 @@ class PterodactylApp {
         this.url = url;
         this.appKey = appAPIKey;
         this.interaction = interaction;
+        this.headers = {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${this.appKey}`,
+                }
 
         this.embedDefaultSuccessReply = async function () {
             const channel = this.interaction.client.channels.cache.get(this.interaction.channel.id);
@@ -25,11 +30,7 @@ class PterodactylApp {
         this.listNodes = async function () {
             const response = await fetch(`${this.url}/api/application/nodes`, {
                 method: "GET",
-                headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${this.appKey}`,
-                },
+                headers: this.headers,
             });
             const data = await response.json();
             if (data.errors) {
@@ -40,14 +41,15 @@ class PterodactylApp {
                 return data;
             }
         };
+
+        this.createNode = async function (name = 'New Node', locationId, fqdn, scheme = 'https', memory, memoryOverallocate = 0, disk, diskOverallocate = 0, uploadSize = 100, daemonSFTP = 2022, daemonListen = 8080 ) {
+            
+        }
+
         this.listNodesAllocation = async function (nodesId) {
             const response = await fetch(`${this.url}/api/application/nodes/${nodesId}/allocations`, {
                 method: "GET",
-                headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${this.appKey}`,
-                },
+                headers: this.headers,
             });
             const data = await response.json();
             if (data.errors) {
@@ -63,11 +65,7 @@ class PterodactylApp {
             const body = { ip: ip, ports: ports, alias: alias };
             const response = await fetch(`${this.url}/api/application/nodes/${nodesId}/allocations`, {
                 method: "POST",
-                headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${this.appKey}`,
-                },
+                headers: this.headers,
                 body: JSON.stringify(body),
             });
             if (response.status == 204) {
