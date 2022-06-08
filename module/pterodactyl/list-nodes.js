@@ -36,7 +36,7 @@ module.exports = {
             
           }
           await channel.send({ embeds: [embed] });
-          await interaction.reply("Complete");
+          await interaction.editReply("Complete");
         }
       }
     }
