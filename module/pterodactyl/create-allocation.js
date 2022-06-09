@@ -28,7 +28,7 @@ module.exports = {
             const alias = interaction.options.getString("alias");
             const channelId = interaction.channel.id;
             const channel = interaction.client.channels.cache.get(channelId);
-            const pterodactyl = new Pterodactyl.PterodactylApp(interaction, config.ptero.panelUrl, config.ptero.appAPIKey);
+            const pterodactyl = new Pterodactyl.PterodactylApp(interaction, config);
             const response = await pterodactyl.listNodesAllocation(nodeId);
             if (!response) {
                 console.log("ERROR - Failed to get current registered allocation!");
@@ -36,7 +36,6 @@ module.exports = {
                 var validAllocation = [];
 
                 const registeredAllocation = response.data;
-
                 var failed = false;
                 var x = 0;
                 for (var i = 0; i < allocationLimit; ) {

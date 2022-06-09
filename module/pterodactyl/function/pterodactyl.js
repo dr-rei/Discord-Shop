@@ -2,16 +2,29 @@ const fetch = require("node-fetch");
 const { MessageEmbed } = require("discord.js");
 
 class PterodactylApp {
-    constructor(interaction, url, appAPIKey) {
-        this.url = url;
-        this.appKey = appAPIKey;
+    constructor(interaction, config) {
+        this.url = config.ptero.panelUrl;
+        this.appKey = config.ptero.appAPIKey;
         this.interaction = interaction;
-        this.headers = {
-                    Accept: "application/json",
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${this.appKey}`,
-                }
+        this.nodesDefaultSet = {
+            name: config.ptero.nodesDefaultSet.name,
+            useSSL: config.ptero.nodesDefaultSet.useSSL,
+            behindProxy: config.ptero.nodesDefaultSet.behindProxy,
+            memory: config.ptero.nodesDefaultSet.memory,
+            memoryOverallocate: config.ptero.nodesDefaultSet.memoryOverallocate,
+            disk: config.ptero.nodesDefaultSet.disk,
+            diskOverallocate: config.ptero.nodesDefaultSet.diskOverallocate,
+            uploadSize: config.ptero.nodesDefaultSet.uploadSize,
+            daemonSFTP: config.ptero.nodesDefaultSet.daemonSFTP,
+            daemonListen: config.ptero.nodesDefaultSet.daemonListen,
+        };
 
+        this.headers = {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${this.appKey}`,
+        };
+        
         this.embedDefaultSuccessReply = async function () {
             const channel = this.interaction.client.channels.cache.get(this.interaction.channel.id);
 
@@ -42,9 +55,49 @@ class PterodactylApp {
             }
         };
 
-        this.createNode = async function (name = 'New Node', locationId, fqdn, scheme = 'https', memory, memoryOverallocate = 0, disk, diskOverallocate = 0, uploadSize = 100, daemonSFTP = 2022, daemonListen = 8080 ) {
-            
-        }
+        this.createNode = async function (
+            name,
+            locationId,
+            fqdn,
+            useSSL,
+            behindProxy,
+            memory,
+            memoryOverallocate,
+            disk,
+            diskOverallocate,
+            uploadSize,
+            daemonSFTP,
+            daemonListen
+        ) {
+            const body = {
+                name: name || this.nodesDefaultSet.name,
+                location_id: locationId,
+                fqdn: fqdn,
+                scheme: useSSL || this.nodesDefaultSet.useSSL,
+                behind_proxy: behindProxy || this.nodesDefaultSet.behindProxy,
+                memory: memory || this.nodesDefaultSet.memory,
+                memory_overallocate: memoryOverallocate || this.nodesDefaultSet.memoryOverallocate,
+                disk: disk || this.nodesDefaultSet.disk,
+                disk_overallocate: diskOverallocate || this.nodesDefaultSet.diskOverallocate,
+                upload_size: uploadSize || this.nodesDefaultSet.uploadSize,
+                daemon_sftp: daemonSFTP || this.nodesDefaultSet.daemonSFTP,
+                daemon_listen: daemonListen || this.nodesDefaultSet.daemonListen,
+            };
+            const response = await fetch(`${this.url}/api/application/nodes`, {
+                method: "POST",
+                headers: this.headers,
+                body: JSON.stringify(body),
+            });
+            if (response.status == 201) {
+                const data = await response.json();
+                return data;
+            } else {
+                const data = await response.json();
+                const err = data.errors[0];
+                await this.embedDefaultErrorReply(err.code, err.status, err.detail);
+                return false;
+            }
+        };
 
         this.listNodesAllocation = async function (nodesId) {
             const response = await fetch(`${this.url}/api/application/nodes/${nodesId}/allocations`, {
