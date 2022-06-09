@@ -14,8 +14,9 @@ Bot that created for helping Server Owner to do shop management in Discord Serve
 
 -   Basic Integration With Pterodactyl Panel
 
-    -   Show all Node List
-    -   Creating random allocation
+    -   Show all Nodes List
+    -   Creating New Node
+    -   Creating random nodes allocation
 
 ## Installation
 
