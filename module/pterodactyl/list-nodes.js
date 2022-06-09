@@ -14,7 +14,7 @@ module.exports = {
       denied.permissionDenied(interaction);
     } else {
       await interaction.reply('Running...')
-      const pterodactyl = new Pterodactyl.PterodactylApp(interaction, config.ptero.panelUrl, config.ptero.appAPIKey);
+      const pterodactyl = new Pterodactyl.PterodactylApp(interaction, config);
 
       const res = await pterodactyl.listNodes();
       if (!res) {
@@ -22,16 +22,17 @@ module.exports = {
       } else {
         const list = res.data;
         const length = list.length;
-        const pageData = 8;
+        const pageData = 5;
         const page = Math.ceil(length / pageData);
         
         for (var i = 0; i < page; i++) {
           const embed = new MessageEmbed().setColor("#0000ff").setTitle(`Nodes List - Page ${i + 1}/${page}`);
           for (var j = 0; j < pageData; j++) {
             if (list[j + (pageData * i + 1)]) {
-              embed.addField(`Nodes Name`, "```" + list[j + (pageData * i + 1)].attributes.name + "```",true);
-              embed.addField(`ID`, "```" + list[j + (pageData * i + 1)].attributes.id + "```", true);
-              embed.addField("========================", "========================");
+              embed.addField(`Node Name`, "```" + list[j + (pageData * i + 1)].attributes.name + "```",true);
+              embed.addField(`Node ID`, "```" + list[j + (pageData * i + 1)].attributes.id + "```", true);
+              embed.addField(`Location ID`, "```" + list[j + (pageData * i + 1)].attributes.location_id + "```", true);
+              embed.addField("===========================", "==========================");
             }
             
           }
