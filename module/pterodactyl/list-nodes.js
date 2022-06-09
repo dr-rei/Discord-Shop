@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const Pterodactyl = require("./function/pterodactyl");
 const { MessageEmbed } = require("discord.js");
+const delay = require("delay");
 
 module.exports = {
   data: new SlashCommandBuilder().setName("list-nodes")
@@ -37,8 +38,10 @@ module.exports = {
             
           }
           await channel.send({ embeds: [embed] });
-          await interaction.editReply("Complete");
+          await delay(500);
+          
         }
+        await interaction.editReply("Complete");
       }
     }
   },
