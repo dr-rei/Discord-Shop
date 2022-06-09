@@ -1,6 +1,6 @@
---- 
+---
 # NOTICE !!!
-# NEVER CHANGE OR MOVE OR EDIT THE VARIABLE NAME INSIDE THIS FILE UNLES YOU UNDERSTAND WHAT YOU TRYING TO DO! 
+# NEVER CHANGE OR MOVE OR EDIT THE VARIABLE NAME INSIDE THIS FILE UNLES YOU UNDERSTAND WHAT YOU TRYING TO DO!
 # THAT CAN GENERATING ERROR!
 # JUST INTERACT AND EDIT THE VARIABLE VALUE!
 
@@ -8,21 +8,30 @@
 
 # CONFIGURATION READER
 
-  useYMLConfig: true  # put true as value if you want the bot use this yml file for configuration. If false the bot will use .env variable
+useYMLConfig: true # put true as value if you want the bot use this yml file for configuration. If false the bot will use .env variable
 # ROLE ID FOR MODULE PERMISSION
-  permission: # Array of Role ID that can access some command! Make sure put value in array format. The number of roles that can be entered is not limited!
-    admin:          ["ROLE ID","ROLE ID"] 
-    ptero:          ["ROLE ID","ROLE ID"]
+permission: # Array of Role ID that can access some command! Make sure put value in array format. The number of roles that can be entered is not limited!
+    admin: ["ROLE ID", "ROLE ID"]
+    ptero: ["ROLE ID", "ROLE ID"]
 # GENERAL USE
-  general:
-    botToken:       "YOUR BOT TOKEN HERE!" # Your bot token!
-    botClientId:    "BOT ID" # Your Bot Client ID
-    serverGuildId:  "SERVER ID" # Your Server ID
-    serverOwner:    "OWNER ID" # Your Server Owner ID
+general:
+    botToken: "YOUR BOT TOKEN HERE!" # Your bot token!
+    botClientId: "BOT ID" # Your Bot Client ID
+    serverGuildId: "SERVER ID" # Your Server ID
+    serverOwner: "OWNER ID" # Your Server Owner ID
 
-  ptero:
+ptero:
     usePterodactyl: true # true = activating pterodactyl integration feature, false = deactivate pterodactyl integration feature!
-    appAPIKey:      "APPLICATION API KEY" # Pterodactyl Application API Key
-    panelUrl:       "MAIN PANEL URL" # Pterodactyl Panel main URL (https://yourdomain.com)
-
-
+    appAPIKey: "APPLICATION KEY" # Pterodactyl Application API Key
+    panelUrl: "PANEL URL" # Pterodactyl Panel main URL (https://yourdomain.com)
+    nodesDefaultSet:
+        name: "NEW NODE"
+        useSSL: "https"
+        behindProxy: false
+        memory: 64000
+        memoryOverallocate: 0
+        disk: 1000000
+        diskOverallocate: 0
+        uploadSize: 100
+        daemonSFTP: 2022
+        daemonListen: 8080
