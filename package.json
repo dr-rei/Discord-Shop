@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Dr-Rei/Discord-Shop#readme",
   "dependencies": {
     "@discordjs/rest": "^0.4.1",
+    "delay": "^5.0.0",
     "discord.js": "^13.7.0",
     "dotenv": "^16.0.1",
     "fs": "^0.0.1-security",
