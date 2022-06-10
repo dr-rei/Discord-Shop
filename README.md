@@ -16,7 +16,9 @@ Bot that created for helping Server Owner to do shop management in Discord Serve
 
     -   Show all Nodes List
     -   Creating New Node
-    -   Creating random nodes allocation
+    -   Creating random nodes allocation 
+    -   Cloudflare Integration (Development)
+
 
 ## Installation
 
