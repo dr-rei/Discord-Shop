@@ -13,13 +13,14 @@ useYMLConfig: true # put true as value if you want the bot use this yml file for
 permission: # Array of Role ID that can access some command! Make sure put value in array format. The number of roles that can be entered is not limited!
     admin: ["ROLE ID", "ROLE ID"]
     ptero: ["ROLE ID", "ROLE ID"]
+
 # GENERAL USE
 general:
     botToken: "YOUR BOT TOKEN HERE!" # Your bot token!
     botClientId: "BOT ID" # Your Bot Client ID
     serverGuildId: "SERVER ID" # Your Server ID
     serverOwner: "OWNER ID" # Your Server Owner ID
-
+# PTERODACTYL MODULE
 ptero:
     usePterodactyl: true # true = activating pterodactyl integration feature, false = deactivate pterodactyl integration feature!
     appAPIKey: "APPLICATION KEY" # Pterodactyl Application API Key
@@ -35,3 +36,8 @@ ptero:
         uploadSize: 100
         daemonSFTP: 2022
         daemonListen: 8080
+
+    cloudflare:
+        integrateCloudflare: true
+        email: "YOUR CLOUDFLARE EMAIL"
+        APIKey: "YOUR CLOUDFLARE API"
