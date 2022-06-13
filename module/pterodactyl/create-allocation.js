@@ -66,12 +66,17 @@ module.exports = {
                     console.log("Registering the allocation....");
                     console.log(validAllocation);
                     const createAllocation = await pterodactyl.createNodesAllocation(nodeId, ip, validAllocation, alias);
-                    if (createAllocation == true) {
+                    if (!createAllocation) {
+                        console.log("Register Allocation Failed");
+                        
+                    } else {
                         console.log("Allocation registered...");
                         await pterodactyl.embedDefaultSuccessReply();
-                        await interaction.editReply("COMPLETE!");
-                    } else {
-                        console.log("Register Allocation Failed");
+                        if (!config.ptero.cloudflare.integrateCloudflare) {
+                            await interaction.editReply("Complete...");
+                        } else {
+                            
+                        }
                     }
                 }
             }

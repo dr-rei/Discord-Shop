@@ -2,6 +2,7 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 const Pterodactyl = require("./function/pterodactyl");
 const { MessageEmbed } = require("discord.js");
 const delay = require("delay");
+var psl = require("psl");
 
 module.exports = {
   data: new SlashCommandBuilder().setName("list-nodes")
@@ -41,7 +42,8 @@ module.exports = {
           await delay(500);
           
         }
-        await interaction.editReply("Complete");
+        
+        await interaction.editReply('Complete...')
       }
     }
   },
