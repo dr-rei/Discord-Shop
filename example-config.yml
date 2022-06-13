@@ -38,6 +38,6 @@ ptero:
         daemonListen: 8080
 
     cloudflare:
-        integrateCloudflare: true
+        integrateCloudflare: false
         email: "YOUR CLOUDFLARE EMAIL"
         APIKey: "YOUR CLOUDFLARE API"
