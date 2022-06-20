@@ -98,6 +98,7 @@ module.exports = {
                     await interaction.editReply("Create Node Complete...\nFailed to register to Cloudflare");
                 }
                 else {
+                    await interaction.editReply("Create Node Complete...\nStart Registering to Cloudflare");
                     const cf = new cloudflare.cloudflareAPI(interaction, config);
                     const zoneList = await cf.zonesList();
                     console.log('Start registering Node Domain')
