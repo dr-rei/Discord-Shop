@@ -99,6 +99,20 @@ class PterodactylApp {
             }
         };
 
+        this.deleteNode = async function (nodesId) {
+            const response = await fetch(`${this.url}/api/application/nodes/${nodesId}`, {
+                method: "DELETE",
+                headers: this.headers,
+            });
+            const data = await response.json();
+            if (data.errors) {
+                const err = data.errors[0];
+                await this.embedDefaultErrorReply(err.code, err.status, err.detail);
+                return false;
+            } else {
+                return data;
+            }
+        }
         this.listNodesAllocation = async function (nodesId) {
             const response = await fetch(`${this.url}/api/application/nodes/${nodesId}/allocations`, {
                 method: "GET",

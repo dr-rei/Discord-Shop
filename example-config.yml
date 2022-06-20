@@ -22,7 +22,7 @@ general:
     serverOwner: "OWNER ID" # Your Server Owner ID
 # PTERODACTYL MODULE
 ptero:
-    usePterodactyl: true # true = activating pterodactyl integration feature, false = deactivate pterodactyl integration feature!
+    usePterodactyl: false # true = activating pterodactyl integration feature, false = deactivate pterodactyl integration feature!
     appAPIKey: "APPLICATION KEY" # Pterodactyl Application API Key
     panelUrl: "PANEL URL" # Pterodactyl Panel main URL (https://yourdomain.com)
     nodesDefaultSet:
